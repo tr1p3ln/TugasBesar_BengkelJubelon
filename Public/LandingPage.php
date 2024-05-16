@@ -97,28 +97,28 @@ include('server/controller_favorite_product.php')
           <div class="col-xl-3 col-md-6 d-flex" data-aos="fade-up" data-aos-delay="100">
             <div class="service-item position-relative">
               <h4><a href="service-details.html" class="stretched-link">Ganti Oli</a></h4>
-              <p>Voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi</p>
+              <p>proses menguras oli mesin lama yang sudah terpakai dari kendaraan ke dalam wadah. Lalu menggantinya dengan oli baru yang bersih dan filter oli yang baru </p>
             </div>
           </div><!-- End Service Item -->
 
           <div class="col-xl-3 col-md-6 d-flex" data-aos="fade-up" data-aos-delay="200">
             <div class="service-item position-relative">
               <h4><a href="service-details.html" class="stretched-link">Pasang Spare Part</a></h4>
-              <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore</p>
+              <p>proses pengelolaan stok atau inventaris suku cadang dan komponen yang digunakan saat operasional perbaikan atau maintenance.</p>
             </div>
           </div><!-- End Service Item -->
 
           <div class="col-xl-3 col-md-6 d-flex" data-aos="fade-up" data-aos-delay="300">
             <div class="service-item position-relative">
               <h4><a href="service-details.html" class="stretched-link">Konsultasi</a></h4>
-              <p>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia</p>
+              <p>agar peserta dapat merawat dan mereparasi sepeda motor sebagai mekanik sepeda motor sesuai standar reparasi bengkel, setidaknya dapat melakukan perawatan sistem bahan bakar</p>
             </div>
           </div><!-- End Service Item -->
 
           <div class="col-xl-3 col-md-6 d-flex" data-aos="fade-up" data-aos-delay="400">
             <div class="service-item position-relative">
               <h4><a href="service-details.html" class="stretched-link">Bore Up</a></h4>
-              <p>At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis</p>
+              <p> istilah dalam memodifikasi kendaraan pada sektor mesin dengan cara menaikkan kapasitas silinder.</p>
             </div>
           </div><!-- End Service Item -->
 
@@ -138,22 +138,11 @@ include('server/controller_favorite_product.php')
       </div><!-- End Section Title -->
 
       <div class="container">
-
-        <div class="isotope-layout" data-default-filter="*" data-layout="masonry" data-sort="original-order">
-
-          <ul class="portfolio-filters isotope-filters" data-aos="fade-up" data-aos-delay="100">
-            <li data-filter="*" class="filter-active">All</li>
-            <li data-filter=".filter-product">Ban</li>
-            <li data-filter=".filter-branding">Oli</li>
-            <li data-filter=".filter-books">Body</li>
-          </ul>
           <div class="row product__filter">
                 <?php while ($row = $fav_product->fetch_assoc()) { ?>
                     <div class="col-lg-3 col-md-6 col-sm-6 col-md-6 col-sm-6 mix new-arrivals">
                         <div class="product__item">
-                            <div class="product__item__pic set-bg" data-setbg="img/product<?php echo $row['product_image1']; ?>">
-                                <span class="label">New</span>
-                            </div>
+                            <img class="product__item__pic set-bg" src="img/product/<?php echo $row['product_image1']; ?>" alt="Product Image">
                             <div class="product__item__text">
                                 <h6><?php echo $row['product_name']; ?></h6>
                                 <a href="<?php echo "shop-details.php?product_id=" . $row['product_id']; ?>" class="add-cart">+ Add To Cart</a>
@@ -171,8 +160,6 @@ include('server/controller_favorite_product.php')
                 <?php } ?>
             </div>
           </div><!-- End Portfolio Container -->
-        </div>
-
       </div>
 
     </section><!-- /Portfolio Section -->
