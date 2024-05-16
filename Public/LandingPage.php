@@ -46,7 +46,7 @@ include('server/controller_favorite_product.php')
       <nav id="navmenu" class="navmenu">
         <ul>
           <li><a href="index.php" class="">Home</a></li>
-          <li><a href="index.html#about">Produk</a></li>
+          <li><a href="Produk.php">Produk</a></li>
           <li><a href="service-details.html">Service</a></li>
           <li><a href="index.html#team">Contact</a></li>
         </ul>
@@ -68,7 +68,7 @@ include('server/controller_favorite_product.php')
             <h1 class="">Bengkel Jubelon</h1>
             <p>Menjual spare part dan juga service untuk motor anda barang yang tersedia bisa cek</p>
             <div class="d-flex">
-              <a href="index.html#about" class="btn-get-started">Produk</a>
+              <a href="Produk.php" class="btn-get-started">Produk</a>
               <a href="index.html#about" class="glightbox btn-watch-video d-flex align-items-center">Service</a>
               <!-- <a href="https://www.youtube.com/watch?v=LXb3EKWsInQ" class="glightbox btn-watch-video d-flex align-items-center"><i class="bi bi-play-circle"></i><span>Watch Video</span></a> -->
             </div>
@@ -195,10 +195,7 @@ include('server/controller_favorite_product.php')
         <div class="col-lg-2 col-md-3 footer-links">
           <h4>Our Services</h4>
           <ul>
-            <li><i class="bi bi-chevron-right"></i> <a href="#">Web Design</a></li>
-            <li><i class="bi bi-chevron-right"></i> <a href="#">Web Development</a></li>
-            <li><i class="bi bi-chevron-right"></i> <a href="#">Product Management</a></li>
-            <li><i class="bi bi-chevron-right"></i> <a href="#">Marketing</a></li>
+            <li><i class="bi bi-chevron-right"></i> <a href="#">Service</a></li>
           </ul>
         </div>
       </div>
