@@ -51,5 +51,6 @@ package.json
 tailwind.config.js
 Server/
 src/
+README.md/
 
 # End of https://www.toptal.com/developers/gitignore/api/windows,visualstudiocode

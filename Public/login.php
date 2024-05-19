@@ -1,12 +1,13 @@
 <?php
 session_start();
 include('../Server/connection.php');
-/*
+
 if(isset ($_SESSION['logged_in'])){
-    header('location:login.php '); 
+    header('location: login.php'); 
     exit;
 }
-*/
+
+
 if(isset($_POST['login_btn'])){
     $gmail = $_POST['Gmail'];
     $password =$_POST['Password']; 
@@ -18,13 +19,13 @@ if(isset($_POST['login_btn'])){
 
         if($stmt_login -> execute()){ //
             $stmt_login-> bind_result(
-              $Id,
-              $gmail,
-              $password,
-              $nama,
-              $alamat,
-              $phone,
-              $birtday,
+            $Id,
+            $gmail,
+            $password,
+            $nama,
+            $alamat,
+            $phone,
+            $birtday,
             );
                 $stmt_login->store_result();
 
@@ -39,12 +40,12 @@ if(isset($_POST['login_btn'])){
                 $_SESSION['Birtday'] = $birtday;
                 $_SESSION['logged_in']= true; //mengisi variable dengan nilai true
 
-                header('location: welcome.php?message=Logged in sucessfully'); 
+                header('location: LandingPage.php?message=Logged in sucessfully'); 
             }else{
-                header('location: index.php?error=Cound not verify your account');
+                header('location: login.php?error=Cound not verify your account');
             }
         }else{
-            header('location: index.php?error=Something went wrong');
+            header('location: login.php?error=Something went wrong');
         }
 }
 ?>
@@ -59,7 +60,7 @@ if(isset($_POST['login_btn'])){
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-    <!-- Judul & Gambar Logo -->
+    
     <form autocomplete="off" id="login-form" method="POST" action="login.php">
         <?php if(isset($_GET['error'])) ?> <!-- tambahkan { dan } -->
         <div role="alert">
@@ -67,6 +68,7 @@ if(isset($_POST['login_btn'])){
             echo $_GET['error']; //memunculkan teks 'error'
         } 
         ?>
+        <!-- Judul & Gambar Logo -->
     <section class="bg-gray-50 dark:bg-white">  <!-- Background Warna-->
         <div class="flex flex-col items-center justify-center px-6 py-8 mx-auto md:h-screen lg:py-0">
             <a href="#" class="flex items-center mb-6 text-2xl font-semibold text-gray-900 dark:text-white border-gray-800 bg-gray-800  rounded-lg">
@@ -78,7 +80,7 @@ if(isset($_POST['login_btn'])){
                     <h1 class="text-xl font-bold leading-tight tracking-tight text-gray-900 md:text-2xl dark:text-white"> <!-- text Sign in-->
                         Sign in to your account
                     </h1>
-                    <form class="space-y-4 md:space-y-6" action="#">
+                    <form class="space-y-4 md:space-y-6" action="login.php" method="post" autocomplete="off">
                         <div class="input email"> <!-- Input Email-->
                         <label for="email" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Your email</label>
                         <input type="text" name="Gmail" id="Gmail" class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Gmail" required=""> 
@@ -96,6 +98,7 @@ if(isset($_POST['login_btn'])){
                                 <label for="remember" class="text-gray-500 dark:text-white">Remember me</label>
                                 </div>
                             </div>
+                            <!-- Harus Buat Page Forgot password -->
                             <a href="#" class="text-sm font-medium text-primary-600 hover:underline dark:text-white">Forgot password?</a>
                         </div>
                         <button type="submit" id="signup_btn" name="signup_btn"  class="w-full text-white bg-primary-600 hover:bg-primary-700 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800 btn btn-primary">
