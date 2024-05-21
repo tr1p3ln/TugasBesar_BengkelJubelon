@@ -1,3 +1,21 @@
+<?php
+session_start();
+if (!empty($_SESSION['cart'])) {
+    // Let user in
+} else {
+    // Send user to hompe page
+    // Kalau mau dihilangkan tinggal diberi comment
+    //header('location: index.php');
+}
+
+
+function setRupiah($price)
+{
+    $result = "Rp".number_format($price, 0, ',', '.');
+    return $result;
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -10,7 +28,7 @@
 
   <!-- Favicons -->
   <link href="assets/img/favicon.png" rel="icon">
-  <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+  <link href="assetsimg/apple-touch-icon.png" rel="apple-touch-icon">
 
   <!-- Fonts -->
   <link href="https://fonts.googleapis.com" rel="preconnect">
@@ -52,19 +70,25 @@
       <a class="btn-getstarted" href="cart.php"><i class="bi bi-cart3"></i></i> Cart</a>
       <a class="btn-getstarted" href="index.html#about"><i class="bi bi-person-circle"></i> Profile</a>
     </div>
-  </header>
+</header>
 
-  <br>
-
-  <section class="checkout spad">
+<section class="checkout spad">
         <div class="container">
             <div class="checkout__form">
-                <form id="checkout-form" method="POST" action="server/place_service.php">
+                <form id="checkout-form" method="POST" action="server/place_order.php">
+                    <div class="alert alert-danger" role="alert">
+                        <?php if (isset($_GET['message'])) {
+                            echo $_GET['message'];
+                        } ?>
+                        <?php if (isset($_GET['message'])) { ?>
+                            <a href="login.php" class="btn btn-primary">Login</a>
+                        <?php } ?>
+                    </div>
                     <div class="row">
                         <div class="col-lg-8 col-md-6">
-                            <h6 class="checkout__title">Service Details</h6>
+                            <h6 class="checkout__title">Billing Details</h6>
                             <div class="checkout__input">
-                                <p>Name Lengkap<span>*</span></p>
+                                <p>Name<span>*</span></p>
                                 <input type="text" name="name">
                             </div>
                             <div class="row">
@@ -76,61 +100,38 @@
                                 </div>
                                 <div class="col-lg-6">
                                     <div class="checkout__input">
-                                        <p>No Telepon<span>*</span></p>
+                                        <p>Phone<span>*</span></p>
                                         <input type="text" name="phone">
                                     </div>
                                 </div>
                             </div>
                             <div class="checkout__input">
-                                <p>Kota<span>*</span></p>
+                                <p>Town/City<span>*</span></p>
                                 <input type="text" name="city">
                             </div>
                             <div class="checkout__input">
-                                <p>Alamat<span>*</span></p>
+                                <p>Address<span>*</span></p>
                                 <input type="text" name="address" placeholder="Street Address" class="checkout__input__add">
                             </div>
-                            <div class="checkout__input">
-                              <p>Tipe Motor<span>*</span></p>
-                              <select class="form-select" id="inputGroupSelect01">
-                                <option selected>Pilih...</option>
-                                <option value="1">Cub</option>
-                                <option value="2">Sport Bike</option>
-                                <option value="3">Dual Sport</option>
-                                <option value="4">Skuter</option>
-                              </select>
-                            </div>
-                            <div class="checkout__input">
-                                <p>Keluhaan<span>*</span></p>
-                                <input type="text" name="keluhan" placeholder="keluhan motor" class="checkout__input__add">
+                        </div>
+                        <div class="col-lg-4 col-md-6">
+                            <div class="checkout__order">
+                                <h4 class="order__title">Your order</h4>
+                                <div class="checkout__order__products">Product <span>Price</span></div>
+                                <ul class="checkout__total__products">
+                                    <?php foreach ($_SESSION['cart'] as $key => $value) { ?>
+                                        <li><?php echo $value['product_quantity']; ?> <?php echo $value['product_name']; ?> <span> <?php echo setRupiah(($value['product_price'])); ?></span></li>
+                                    <?php } ?>
+                                </ul>
+                                <ul class="checkout__total__all">
+                                    <li>Total <span><?php echo setRupiah(($_SESSION['total'])); ?></span></li>
+                                </ul>
+
+                                <input type="submit" class="site-btn" id="checkout-btn" name="place_order" value="PLACE ORDER" />
                             </div>
                         </div>
                     </div>
-                    <button type="submit" class="btn btn-primary">Selesai</button>
                 </form>
             </div>
         </div>
     </section>
-
-
-
-<!-- Scroll Top -->
-<a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
-
-<!-- Preloader -->
-<div id="preloader"></div>
-
-<!-- Vendor JS Files -->
-<script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-<script src="assets/vendor/php-email-form/validate.js"></script>
-<script src="assets/vendor/aos/aos.js"></script>
-<script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
-<script src="assets/vendor/imagesloaded/imagesloaded.pkgd.min.js"></script>
-<script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
-<script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
-
-<!-- Main JS File -->
-<script src="assets/js/main.js"></script>
-
-</body>
-
-</html>
