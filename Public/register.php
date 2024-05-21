@@ -26,8 +26,9 @@ if(isset ($_POST['gmail']) && isset ($_POST['password']) && isset ($_POST['nama'
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Jubolin</title>
     <link rel="stylesheet" href="css/style.css">
+    <title>Jubolin</title>
+        
     <!-- <style>
      *{
         border: 1px solid red;
@@ -36,13 +37,13 @@ if(isset ($_POST['gmail']) && isset ($_POST['password']) && isset ($_POST['nama'
 </head>
 <body>
 
-    <section class="bg-gray-50 dark:bg-white size-full h-full  ">  <!-- Background Warna-->
-        <div class="flex flex-col items-center justify-center px-6 py-8 mx-auto md:h-screen lg:py-0 w-full h-auto size-auto">
-            <a href="#" class="flex items-center mb-6 text-2xl font-semibold text-gray-900 dark:text-white border-gray-800 bg-gray-800  rounded-lg">
+    <section class="h-full bg-gray-50 dark:bg-white size-full ">  <!-- Background Warna-->
+        <div class="flex flex-col items-center justify-center w-full h-auto px-6 py-8 mx-auto md:h-screen lg:py-0 size-auto">
+            <a href="#" class="flex items-center mb-6 text-2xl font-semibold text-gray-900 bg-gray-800 border-gray-800 rounded-lg dark:text-white">
                 <img class="w-8 h-8 mr-2 rounded-full" src="https://i.pinimg.com/564x/81/de/e5/81dee5592ac7757875b7441a35adfc60.jpg" alt="logo"> <!--Logo-->
                 JUBOLIN 
             </a> <!--Text Logo-->
-            <div class="w-full bg-white rounded-lg shadow dark:border md:mt-0 sm:max-w-md xl:p-0 dark:bg-gray-800 dark:border-gray-700  max-h-full"> <!--Card Sign Up-->
+            <div class="w-full max-h-full bg-white rounded-lg shadow dark:border md:mt-0 sm:max-w-md xl:p-0 dark:bg-gray-800 dark:border-gray-700"> <!--Card Sign Up-->
                 <div class="p-1 space-y-3 md:space-y-2 sm:p-1">
                     <h1 class="text-xl font-bold leading-tight tracking-tight text-gray-900 md:text-2xl dark:text-white"> <!-- text Sign in-->
                         Sign Up
@@ -66,13 +67,13 @@ if(isset ($_POST['gmail']) && isset ($_POST['password']) && isset ($_POST['nama'
                         </div>
                         <div class="input no_hanphone">
                             <label class="block">
-                            <label for="telphone" class=" block mb-2 text-sm font-medium text-gray-900 dark:text-white">Masukan No Handphone</label>
+                            <label for="telphone" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Masukan No Handphone</label>
                             <input type="phone" name="phone" id="phone" placeholder="Phone" class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" required="">
                             </label>
                         </div>
                         <div class="input date">
-                            <label for="date" class=" block mb-2 text-sm font-medium text-gray-900 dark:text-white">Birthday</label>
-                            <input type="date" name="birtday" id="birtday" placeholder="birthday" class="rounded-lg text-center">
+                            <label for="date" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Birthday</label>
+                            <input type="date" name="birtday" id="birtday" placeholder="birthday" class="text-center rounded-lg">
                         </div>
                         <div class="flex items-center justify-between">
                             <div class="flex items-start">
