@@ -15,6 +15,11 @@ if (isset($_POST['search']) && isset($_POST['product_category'])) {
     $stmt_product->execute();
     $products = $stmt_product->get_result();
 }
+
+
+
+
+$query_sort_low = "select * from products where product_price < 0"
 ?>
 
 <!DOCTYPE html>
@@ -63,7 +68,7 @@ if (isset($_POST['search']) && isset($_POST['product_category'])) {
         <ul>
           <li><a href="LandingPage.php" class="">Home</a></li>
           <li><a href="Produk.php">Produk</a></li>
-          <li><a href="service-details.html">Service</a></li>
+          <li><a href="service.php">Service</a></li>
           <li><a href="index.html#team">Contact</a></li>
         </ul>
         <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
@@ -72,7 +77,8 @@ if (isset($_POST['search']) && isset($_POST['product_category'])) {
       <a class="btn-getstarted" href="index.html#about"><i class="bi bi-person-circle"></i> Profile</a>
     </div>
 </header>
-
+<br>
+<br>
 <section class="shop spad">
         <div class="container">
             <div class="row">
@@ -85,7 +91,7 @@ if (isset($_POST['search']) && isset($_POST['product_category'])) {
                             </form>
                         </div>
                         <div class="shop__sidebar__accordion">
-                            <form action="shop.php" method="post">
+                            <form action="Produk.php" method="post">
                                 <div class="accordion" id="accordionExample">
                                     <div class="card">
                                         <div class="card-heading">
@@ -97,7 +103,7 @@ if (isset($_POST['search']) && isset($_POST['product_category'])) {
                                                     <ul class="nice-scroll">
                                                         <li>
                                                             <div class="form-check">
-                                                                <input class="form-check-input" type="radio" value="sepatu" name="product_category" id="category_one" <?php if (isset($product_category) && $product_category == 'sepatu') {
+                                                                <input class="form-check-input" type="radio" value="ban" name="product_category" id="category_one" <?php if (isset($product_category) && $product_category == 'ban') {
                                                                                                                                                                             echo 'checked';
                                                                                                                                                                         } ?>>
                                                                 <label class="form-check-label" for="product_category">Ban</label>
@@ -105,7 +111,7 @@ if (isset($_POST['search']) && isset($_POST['product_category'])) {
                                                         </li>
                                                         <li>
                                                             <div class="form-check">
-                                                                <input class="form-check-input" type="radio" value="jaket" name="product_category" id="category_one" <?php if (isset($product_category) && $product_category == 'jaket') {
+                                                                <input class="form-check-input" type="radio" value="oli" name="product_category" id="category_one" <?php if (isset($product_category) && $product_category == 'oli') {
                                                                                                                                                                             echo 'checked';
                                                                                                                                                                         } ?>>
                                                                 <label class="form-check-label" for="product_category">Oli</label>
@@ -113,29 +119,36 @@ if (isset($_POST['search']) && isset($_POST['product_category'])) {
                                                         </li>
                                                         <li>
                                                             <div class="form-check">
-                                                                <input class="form-check-input" type="radio" value="kaos" name="product_category" id="category_one" <?php if (isset($product_category) && $product_category == 'kaos') {
+                                                                <input class="form-check-input" type="radio" value="filter" name="product_category" id="category_one" <?php if (isset($product_category) && $product_category == 'filter') {
                                                                                                                                                                         echo 'checked';
                                                                                                                                                                     } ?>>
-                                                                <label class="form-check-label" for="product_category">Kaos</label>
+                                                                <label class="form-check-label" for="product_category">Filter</label>
                                                             </div>
                                                         </li>
                                                         <li>
                                                             <div class="form-check">
-                                                                <input class="form-check-input" type="radio" value="tas" name="product_category" id="category_one" <?php if (isset($product_category) && $product_category == 'tas') {
+                                                                <input class="form-check-input" type="radio" value="Kampas Rem" name="product_category" id="category_one" <?php if (isset($product_category) && $product_category == 'kampas rem') {
                                                                                                                                                                         echo 'checked';
                                                                                                                                                                     } ?>>
-                                                                <label class="form-check-label" for="product_category">Tas</label>
+                                                                <label class="form-check-label" for="product_category">Kampas Rem</label>
                                                             </div>
                                                         </li>
                                                         <li>
                                                             <div class="form-check">
-                                                                <input class="form-check-input" type="radio" value="syal" name="product_category" id="category_one" <?php if (isset($product_category) && $product_category == 'syal') {
+                                                                <input class="form-check-input" type="radio" value="Aki" name="product_category" id="category_one" <?php if (isset($product_category) && $product_category == 'aki') {
                                                                                                                                                                         echo 'checked';
                                                                                                                                                                     } ?>>
-                                                                <label class="form-check-label" for="product_category">Syal</label>
+                                                                <label class="form-check-label" for="product_category">Aki</label>
                                                             </div>
                                                         </li>
-                                                        <!-- <li><a href="#">Men (20)</a></li> -->
+                                                        <li>
+                                                            <div class="form-check">
+                                                                <input class="form-check-input" type="radio" value="bearing" name="product_category" id="category_one" <?php if (isset($product_category) && $product_category == 'bearing') {
+                                                                                                                                                                        echo 'checked';
+                                                                                                                                                                    } ?>>
+                                                                <label class="form-check-label" for="product_category">bearing</label>
+                                                            </div>
+                                                        </li>
                                                     </ul>
                                                 </div>
                                             </div>
@@ -144,7 +157,7 @@ if (isset($_POST['search']) && isset($_POST['product_category'])) {
                                     <div class="card">
                                         <div class="card-body">
                                             <button class="btn btn-secondary" onclick="history.go(0);">
-                                                <i class="fa fa-refresh"></i>
+                                                <i class="bi bi-arrow-clockwise"></i>
                                             </button>
                                             <input type="submit" class="btn btn-primary" name="search" value="Search">
                                         </div>
@@ -162,16 +175,6 @@ if (isset($_POST['search']) && isset($_POST['product_category'])) {
                                     <p>Showing 1–12 of 126 results</p>
                                 </div>
                             </div>
-                            <div class="col-lg-6 col-md-6 col-sm-6">
-                                <div class="shop__product__option__right">
-                                    <p>Sort by Price:</p>
-                                    <select>
-                                        <option value="">Low To High</option>
-                                        <option value="">$0 - $55</option>
-                                        <option value="">$55 - $100</option>
-                                    </select>
-                                </div>
-                            </div>
                         </div>
                     </div>
                     <div class="row">
@@ -182,7 +185,7 @@ if (isset($_POST['search']) && isset($_POST['product_category'])) {
                                     <div class="product__item__text">
                                         <h6><?php echo $row['product_name']; ?></h6>
                                         <h5><?php echo $row['product_brand']; ?></h5>
-                                        <a href="<?php echo "shop-details.php?product_id=" . $row['product_id']; ?>" class="add-cart">+ Add To Cart</a>
+                                        <a href="<?php echo "produk-detail.php?product_id=" . $row['product_id']; ?>" class="add-cart">+ Add To Cart</a>
                                         <div class="rating">
                                             <i class="fa fa-star-o"></i>
                                             <i class="fa fa-star-o"></i>
@@ -211,3 +214,24 @@ if (isset($_POST['search']) && isset($_POST['product_category'])) {
             </div>
         </div>
     </section>
+
+<!-- Scroll Top -->
+<a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+
+<!-- Preloader -->
+<div id="preloader"></div>
+
+<!-- Vendor JS Files -->
+<script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+<script src="assets/vendor/php-email-form/validate.js"></script>
+<script src="assets/vendor/aos/aos.js"></script>
+<script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
+<script src="assets/vendor/imagesloaded/imagesloaded.pkgd.min.js"></script>
+<script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
+<script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
+
+<!-- Main JS File -->
+<script src="assets/js/main.js"></script>
+
+</body> 
+</html>
