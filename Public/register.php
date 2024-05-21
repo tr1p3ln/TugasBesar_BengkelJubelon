@@ -1,5 +1,5 @@
 <?php
-include('../Server/connection.php');
+include('Server/connection.php');
 if(isset ($_POST['gmail']) && isset ($_POST['password']) && isset ($_POST['nama']) && isset($_POST['alamat']) && isset($_POST['phone']) && isset ($_POST['birtday']) ) {
     $user_gmail = $_POST ['gmail']; //Gmail Register
     $user_password = $_POST ['password']; //Password Register
@@ -8,13 +8,13 @@ if(isset ($_POST['gmail']) && isset ($_POST['password']) && isset ($_POST['nama'
     $user_phone = $_POST ['phone']; //Phone Resigter
     $user_birtday = $_POST ['birtday'];// Birtday Register
 
-    $checkQuery = "SELECT * FROM register WHERE Gmail = '$user_gmail' ";
+    $checkQuery = "SELECT * FROM user WHERE gmail = '$user_gmail' ";
     $result = mysqli_query ($conn, $checkQuery);
 
     if(mysqli_num_rows($result) > 0){
         echo "Username already exists. Please choose a different username.";
     }else{
-        $query = " INSERT INTO register (Gmail, Password, Nama, Alamat, Phone, Birtday) VALUES ('$user_gmail','$user_password','$user_nama','$user_alamat','$user_phone','$user_birtday')";
+        $query = " INSERT INTO user (gmail, Password, nama, alamat, phone, birtday) VALUES ('$user_gmail','$user_password','$user_nama','$user_alamat','$user_phone','$user_birtday')";
         mysqli_query($conn, $query);
         echo "RECORD INSERTED SUCCESSFULLY!";
     }

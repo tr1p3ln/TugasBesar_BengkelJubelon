@@ -1,6 +1,6 @@
 <?php
 session_start();
-include('../Server/connection.php');
+include('Server/connection.php');
 /*
 if(isset ($_SESSION['logged_in'])){
     header('location:login.php '); 
@@ -8,10 +8,10 @@ if(isset ($_SESSION['logged_in'])){
 }
 */
 if(isset($_POST['login_btn'])){
-    $gmail = $_POST['Gmail'];
-    $password =$_POST['Password']; 
+    $gmail = $_POST['gmail'];
+    $password =$_POST['password']; 
 
-    $query = "SELECT * FROM register WHERE Gmail = ? AND Password = ? LIMIT 1";
+    $query = "SELECT * FROM user WHERE gmail = ? AND password = ? LIMIT 1";
 
     $stmt_login = $conn->prepare ($query); 
     $stmt_login-> bind_param('ss',$gmail,$password);
@@ -23,7 +23,7 @@ if(isset($_POST['login_btn'])){
               $password,
               $nama,
               $alamat,
-              $phone,
+              $phone,   
               $birtday,
             );
                 $stmt_login->store_result();
