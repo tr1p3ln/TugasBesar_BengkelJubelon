@@ -45,9 +45,9 @@ include('server/controller_favorite_product.php')
 
       <nav id="navmenu" class="navmenu">
         <ul>
-          <li><a href="index.php" class="">Home</a></li>
+          <li><a href="LandingPage.php" class="">Home</a></li>
           <li><a href="Produk.php">Produk</a></li>
-          <li><a href="service-details.html">Service</a></li>
+          <li><a href="service.php">Service</a></li>
           <li><a href="index.html#team">Contact</a></li>
         </ul>
         <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
@@ -69,7 +69,7 @@ include('server/controller_favorite_product.php')
             <p>Menjual spare part dan juga service untuk motor anda barang yang tersedia bisa cek</p>
             <div class="d-flex">
               <a href="Produk.php" class="btn-get-started">Produk</a>
-              <a href="index.html#about" class="glightbox btn-watch-video d-flex align-items-center">Service</a>
+              <a href="service.php" class="glightbox btn-watch-video d-flex align-items-center">Service</a>
               <!-- <a href="https://www.youtube.com/watch?v=LXb3EKWsInQ" class="glightbox btn-watch-video d-flex align-items-center"><i class="bi bi-play-circle"></i><span>Watch Video</span></a> -->
             </div>
           </div>
@@ -96,29 +96,29 @@ include('server/controller_favorite_product.php')
 
           <div class="col-xl-3 col-md-6 d-flex" data-aos="fade-up" data-aos-delay="100">
             <div class="service-item position-relative">
-              <h4><a href="service-details.html" class="stretched-link">Ganti Oli</a></h4>
-              <p>proses menguras oli mesin lama yang sudah terpakai dari kendaraan ke dalam wadah. Lalu menggantinya dengan oli baru yang bersih dan filter oli yang baru </p>
+              <h4><a href="service.php" class="stretched-link">Ganti Oli</a></h4>
+              <p>Proses menguras oli mesin lama yang sudah terpakai dari kendaraan ke dalam wadah. Lalu menggantinya dengan oli baru yang bersih dan filter oli yang baru </p>
             </div>
           </div><!-- End Service Item -->
 
           <div class="col-xl-3 col-md-6 d-flex" data-aos="fade-up" data-aos-delay="200">
             <div class="service-item position-relative">
-              <h4><a href="service-details.html" class="stretched-link">Pasang Spare Part</a></h4>
-              <p>proses pengelolaan stok atau inventaris suku cadang dan komponen yang digunakan saat operasional perbaikan atau maintenance.</p>
+              <h4><a href="service.php" class="stretched-link">Pasang Spare Part</a></h4>
+              <p>Proses pengelolaan stok atau inventaris suku cadang dan komponen yang digunakan saat operasional perbaikan atau maintenance.</p>
             </div>
           </div><!-- End Service Item -->
 
           <div class="col-xl-3 col-md-6 d-flex" data-aos="fade-up" data-aos-delay="300">
             <div class="service-item position-relative">
-              <h4><a href="service-details.html" class="stretched-link">Konsultasi</a></h4>
-              <p>agar peserta dapat merawat dan mereparasi sepeda motor sebagai mekanik sepeda motor sesuai standar reparasi bengkel, setidaknya dapat melakukan perawatan sistem bahan bakar</p>
+              <h4><a href="service.php" class="stretched-link">Konsultasi</a></h4>
+              <p>Agar pengguna dapat merawat dan mereparasi sepeda motor sebagai mekanik sepeda motor sesuai standar reparasi bengkel, setidaknya dapat melakukan perawatan sistem bahan bakar</p>
             </div>
           </div><!-- End Service Item -->
 
           <div class="col-xl-3 col-md-6 d-flex" data-aos="fade-up" data-aos-delay="400">
             <div class="service-item position-relative">
-              <h4><a href="service-details.html" class="stretched-link">Bore Up</a></h4>
-              <p> istilah dalam memodifikasi kendaraan pada sektor mesin dengan cara menaikkan kapasitas silinder.</p>
+              <h4><a href="service.php" class="stretched-link">Bore Up</a></h4>
+              <p>Istilah dalam memodifikasi kendaraan pada sektor mesin dengan cara menaikkan kapasitas silinder.</p>
             </div>
           </div><!-- End Service Item -->
 
@@ -145,7 +145,7 @@ include('server/controller_favorite_product.php')
                             <img class="product__item__pic set-bg" src="img/product/<?php echo $row['product_image1']; ?>" alt="Product Image">
                             <div class="product__item__text">
                                 <h6><?php echo $row['product_name']; ?></h6>
-                                <a href="<?php echo "shop-details.php?product_id=" . $row['product_id']; ?>" class="add-cart">+ Add To Cart</a>
+                                <a href="<?php echo "produk-detail.php?product_id=" . $row['product_id']; ?>" class="add-cart">+ Add To Cart</a>
                                 <div class="rating">
                                     <i class="fa fa-star-o"></i>
                                     <i class="fa fa-star-o"></i>
@@ -185,9 +185,9 @@ include('server/controller_favorite_product.php')
         <div class="col-lg-2 col-md-3 footer-links">
           <h4>Useful Links</h4>
           <ul>
-            <li><i class="bi bi-chevron-right"></i> <a href="#">Home</a></li>
-            <li><i class="bi bi-chevron-right"></i> <a href="#">Produk</a></li>
-            <li><i class="bi bi-chevron-right"></i> <a href="#">Service</a></li>
+            <li><i class="bi bi-chevron-right"></i> <a href="LandingPage.php">Home</a></li>
+            <li><i class="bi bi-chevron-right"></i> <a href="Produk.php">Produk</a></li>
+            <li><i class="bi bi-chevron-right"></i> <a href="service.php">Service</a></li>
             <li><i class="bi bi-chevron-right"></i> <a href="#">Contact</a></li>
           </ul>
         </div>
