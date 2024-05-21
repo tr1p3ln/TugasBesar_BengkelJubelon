@@ -1,5 +1,5 @@
 <?php
-include('server/controller_favorite_product.php')
+include('../Server/connection.php')
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -64,7 +64,7 @@ include('server/controller_favorite_product.php')
 
       <div class="container">
         <div class="row gy-4">
-          <div class="col-lg-6 order-2 order-lg-1 d-flex flex-column justify-content-center">
+          <div class="order-2 col-lg-6 order-lg-1 d-flex flex-column justify-content-center">
             <h1 class="">Bengkel Jubelon</h1>
             <p>Menjual spare part dan juga service untuk motor anda barang yang tersedia bisa cek</p>
             <div class="d-flex">
@@ -73,7 +73,7 @@ include('server/controller_favorite_product.php')
               <!-- <a href="https://www.youtube.com/watch?v=LXb3EKWsInQ" class="glightbox btn-watch-video d-flex align-items-center"><i class="bi bi-play-circle"></i><span>Watch Video</span></a> -->
             </div>
           </div>
-          <div class="col-lg-6 order-1 order-lg-2 hero-img">
+          <div class="order-1 col-lg-6 order-lg-2 hero-img">
             <img src="https://i.pinimg.com/564x/81/de/e5/81dee5592ac7757875b7441a35adfc60.jpg" class="img-fluid animated" alt="">
           </div>
         </div>
@@ -136,11 +136,11 @@ include('server/controller_favorite_product.php')
         <h2>Produk</h2>
 
       </div><!-- End Section Title -->
-
-      <div class="container">
-          <div class="row product__filter">
+`
+        <div class="container">
+          <div class="row product_filter">
                 <?php while ($row = $fav_product->fetch_assoc()) { ?>
-                    <div class="col-lg-3 col-md-6 col-sm-6 col-md-6 col-sm-6 mix new-arrivals">
+                    <div class="col-lg-3 col-md-6 col-sm-6 mix new-arrivals">
                         <div class="product__item">
                             <img class="product__item__pic set-bg" src="img/product/<?php echo $row['product_image1']; ?>" alt="Product Image">
                             <div class="product__item__text">
@@ -160,7 +160,6 @@ include('server/controller_favorite_product.php')
                 <?php } ?>
             </div>
           </div><!-- End Portfolio Container -->
-      </div>
 
     </section><!-- /Portfolio Section -->
 
@@ -174,7 +173,7 @@ include('server/controller_favorite_product.php')
           <a href="index.html" class="d-flex align-items-center">
             <span class="sitename">Ninestars</span>
           </a>
-          <div class="footer-contact pt-3">
+          <div class="pt-3 footer-contact">
             <p>A108 Adam Street</p>
             <p>New York, NY 535022</p>
             <p class="mt-3"><strong>Phone:</strong> <span>+1 5589 55488 55</span></p>
