@@ -25,7 +25,7 @@
   <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
 
   <!-- Main CSS File -->
-  <link href="assets/css/service.css" rel="stylesheet">
+  <link href="assets/css/checkout.css" rel="stylesheet">
 
 </head>
 
@@ -34,7 +34,7 @@
   <header id="header" class="header d-flex align-items-center sticky-top">
     <div class="container-fluid container-xl position-relative d-flex align-items-center">
 
-      <a href="index.php" class="logo d-flex align-items-center me-auto">
+      <a href="LandingPage.php" class="logo d-flex align-items-center me-auto">
         <!-- Uncomment the line below if you also wish to use an image logo -->
         <img src="https://i.pinimg.com/564x/81/de/e5/81dee5592ac7757875b7441a35adfc60.jpg" alt="logo-navbar"> 
         <h1 class="sitename">Jubelon</h1>
@@ -49,10 +49,67 @@
         </ul>
         <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
       </nav>
-      <a class="btn-getstarted" href="index.html#about"><i class="bi bi-cart3"></i></i> Cart</a>
+      <a class="btn-getstarted" href="cart.php"><i class="bi bi-cart3"></i></i> Cart</a>
       <a class="btn-getstarted" href="index.html#about"><i class="bi bi-person-circle"></i> Profile</a>
     </div>
   </header>
+
+  <br>
+
+  <section class="checkout spad">
+        <div class="container">
+            <div class="checkout__form">
+                <form id="checkout-form" method="POST" action="server/place_service.php">
+                    <div class="row">
+                        <div class="col-lg-8 col-md-6">
+                            <h6 class="checkout__title">Service Details</h6>
+                            <div class="checkout__input">
+                                <p>Name Lengkap<span>*</span></p>
+                                <input type="text" name="name">
+                            </div>
+                            <div class="row">
+                                <div class="col-lg-6">
+                                    <div class="checkout__input">
+                                        <p>Email<span>*</span></p>
+                                        <input type="email" name="email">
+                                    </div>
+                                </div>
+                                <div class="col-lg-6">
+                                    <div class="checkout__input">
+                                        <p>No Telepon<span>*</span></p>
+                                        <input type="text" name="phone">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="checkout__input">
+                                <p>Kota<span>*</span></p>
+                                <input type="text" name="city">
+                            </div>
+                            <div class="checkout__input">
+                                <p>Alamat<span>*</span></p>
+                                <input type="text" name="address" placeholder="Street Address" class="checkout__input__add">
+                            </div>
+                            <div class="checkout__input">
+                              <p>Tipe Motor<span>*</span></p>
+                              <select class="form-select" id="inputGroupSelect01">
+                                <option selected>Pilih...</option>
+                                <option value="1">Cub</option>
+                                <option value="2">Sport Bike</option>
+                                <option value="3">Dual Sport</option>
+                                <option value="4">Skuter</option>
+                              </select>
+                            </div>
+                            <div class="checkout__input">
+                                <p>Keluhaan<span>*</span></p>
+                                <input type="text" name="keluhan" placeholder="keluhan motor" class="checkout__input__add">
+                            </div>
+                        </div>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Selesai</button>
+                </form>
+            </div>
+        </div>
+    </section>
 
 
 

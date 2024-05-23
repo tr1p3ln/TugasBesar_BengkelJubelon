@@ -37,7 +37,7 @@ include('../Server/connection.php')
   <header id="header" class="header d-flex align-items-center sticky-top">
     <div class="container-fluid container-xl position-relative d-flex align-items-center">
 
-      <a href="index.php" class="logo d-flex align-items-center me-auto">
+      <a href="LandingPage.php" class="logo d-flex align-items-center me-auto">
         <!-- Uncomment the line below if you also wish to use an image logo -->
         <img src="https://i.pinimg.com/564x/81/de/e5/81dee5592ac7757875b7441a35adfc60.jpg" alt="logo-navbar"> 
         <h1 class="sitename">Jubelon</h1>
@@ -52,7 +52,7 @@ include('../Server/connection.php')
         </ul>
         <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
       </nav>
-      <a class="btn-getstarted" href="index.html#about"><i class="bi bi-cart3"></i></i> Cart</a>
+      <a class="btn-getstarted" href="cart.php"><i class="bi bi-cart3"></i></i> Cart</a>
       <a class="btn-getstarted" href="index.html#about"><i class="bi bi-person-circle"></i> Profile</a>
     </div>
   </header>
