@@ -42,7 +42,7 @@ if(isset($_POST['login_btn'])){
 
                 header('location: LandingPage.php?message=Logged in sucessfully'); 
             }else{
-                header('location: login.php?error=Cound not verify your account');
+                header('location: login.php?error=Cound not verify your account'); /* nambah notif Alert salah */
             }
         }else{
             header('location: login.php?error=Something went wrong');

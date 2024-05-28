@@ -69,7 +69,7 @@ if (isset($_POST['search']) && isset($_POST['product_category'])) {
             <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
         </nav>
         <a class="btn-getstarted" href="cart.php"><i class="bi bi-cart3"></i></i> Cart</a>
-        <a class="btn-getstarted" href="index.html#about"><i class="bi bi-person-circle"></i> Profile</a>
+        <a class="btn-getstarted" href="Profile.html"><i class="bi bi-person-circle"></i> Profile</a>
         </div>
     </header>
 

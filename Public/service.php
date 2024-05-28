@@ -45,12 +45,12 @@
           <li><a href="LandingPage.php" class="">Home</a></li>
           <li><a href="Produk.php">Produk</a></li>
           <li><a href="service.php">Service</a></li>
-          <li><a href="index.html#team">Contact</a></li>
+          <li><a href="Contact.html">Contact</a></li>
         </ul>
         <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
       </nav>
       <a class="btn-getstarted" href="cart.php"><i class="bi bi-cart3"></i></i> Cart</a>
-      <a class="btn-getstarted" href="index.html#about"><i class="bi bi-person-circle"></i> Profile</a>
+      <a class="btn-getstarted" href="Profile.html"><i class="bi bi-person-circle"></i> Profile</a>
     </div>
   </header>
 

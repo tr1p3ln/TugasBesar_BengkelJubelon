@@ -1,4 +1,4 @@
 <?php
-    $conn = mysqli_connect("localhost", "root", "", "bengkel_app") 
+    $conn = mysqli_connect("localhost", "root", "", "bengkeljubelon") 
         or die("Can't connect to the database");
 ?>
