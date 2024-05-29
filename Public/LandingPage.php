@@ -34,7 +34,7 @@ include('../Server/connection.php')
 
 <body class="index-page">
 
-  <header id="header" class="header d-flex align-items-center sticky-top">
+  <header id="header" class="header d-flex align-items-center sticky-top">    
     <div class="container-fluid container-xl position-relative d-flex align-items-center">
 
       <a href="LandingPage.php" class="logo d-flex align-items-center me-auto">
@@ -53,7 +53,7 @@ include('../Server/connection.php')
         <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
       </nav>
       <a class="btn-getstarted" href="cart.php"><i class="bi bi-cart3"></i></i> Cart</a>
-      <a class="btn-getstarted" href="Profile.html"><i class="bi bi-person-circle"></i> Profile</a>
+      <a class="btn-getstarted" href="Profile.php"><i class="bi bi-person-circle"></i> Profile</a>
     </div>
   </header>
 

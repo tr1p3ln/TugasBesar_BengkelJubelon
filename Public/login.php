@@ -2,53 +2,44 @@
 session_start();
 include('../Server/connection.php');
 
-if(isset ($_SESSION['logged_in'])){
-    header('location: login.php'); 
+if (isset($_SESSION['logged_in']) && $_SESSION['logged_in'] === true) {
+    header('Location: Profile.php');
     exit;
 }
 
-
-if(isset($_POST['login_btn'])){
+if (isset($_POST['login_btn'])) {
     $gmail = $_POST['Gmail'];
-    $password =$_POST['Password']; 
+    $password = $_POST['Password'];
 
-    $query = "SELECT * FROM user WHERE gmail = ? AND password = ? LIMIT 1";
+    $query = "SELECT id, gmail, password, nama, alamat, phone,  user_foto FROM user WHERE gmail = ? AND password = ? LIMIT 1";
+    $stmt_login = $conn->prepare($query);
+    $stmt_login->bind_param('ss', $gmail, $password);
 
-    $stmt_login = $conn->prepare ($query); 
-    $stmt_login-> bind_param('ss',$gmail,$password);
+    if ($stmt_login->execute()) {
+        $stmt_login->bind_result($Id, $gmail, $password, $nama, $alamat, $phone, $user_foto);
+        $stmt_login->store_result();
 
-        if($stmt_login -> execute()){ //
-            $stmt_login-> bind_result(
-            $Id,
-            $gmail,
-            $password,
-            $nama,
-            $alamat,
-            $phone,
-            $birtday,
-            );
-                $stmt_login->store_result();
+        if ($stmt_login->num_rows() == 1) {
+            $stmt_login->fetch();
+            $_SESSION['Id'] = $Id;
+            $_SESSION['Gmail'] = $gmail;
+            $_SESSION['Password'] = $password;
+            $_SESSION['Nama'] = $nama;
+            $_SESSION['Alamat'] = $alamat;
+            $_SESSION['Phone'] = $phone;
+            $_SESSION['User_foto'] = $user_foto;
+            $_SESSION['logged_in'] = true;
 
-            if($stmt_login -> num_rows() == 1){  //component 
-                $stmt_login -> fetch();
-                $_SESSION['Id'] = $id;
-                $_SESSION['Gmail'] = $gmail;
-                $_SESSION['Password'] = $password;
-                $_SESSION['Nama'] = $nama;
-                $_SESSION['Alamat'] = $alamat;
-                $_SESSION['Phone'] = $phone;
-                $_SESSION['Birtday'] = $birtday;
-                $_SESSION['logged_in']= true; //mengisi variable dengan nilai true
-
-                header('location: LandingPage.php?message=Logged in sucessfully'); 
-            }else{
-                header('location: login.php?error=Cound not verify your account'); /* nambah notif Alert salah */
-            }
-        }else{
-            header('location: login.php?error=Something went wrong');
+            header('Location: LandingPage.php?message=Logged in successfully');
+        } else {
+            header('Location: login.php?error=Could not verify your account');
         }
+    } else {
+        header('Location: login.php?error=Something went wrong');
+    }
 }
 ?>
+
 
 
 <!DOCTYPE html>
