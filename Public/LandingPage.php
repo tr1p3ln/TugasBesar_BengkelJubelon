@@ -48,7 +48,9 @@ include('../Server/connection.php')
           <li><a href="LandingPage.php" class="">Home</a></li>
           <li><a href="Produk.php">Produk</a></li>
           <li><a href="service.php">Service</a></li>
-          <li><a href="index.html#team">Contact</a></li>
+          <li><a href="Contact.php">Contact</a></li>
+          <li> <a href="login.php">Login</a></li>
+          <li> <a href="register.php">Register</a></li>
         </ul>
         <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
       </nav>
